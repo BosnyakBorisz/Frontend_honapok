@@ -22,7 +22,7 @@ function inditas(event){
         else if(szam < 1 || szam > 12) {throw new Error("A hónapszámnak 1 és 12 közé kell esnie!")}
             
         let eredmeny = kereses(szam)
-        console.log(`${eredmeny.nev}, ${eredmeny.evszak}, ${eredmeny.napok}`)
+        console.log(`${szam} Hónap: ${eredmeny.nev} Évszak: ${eredmeny.evszak} Napok száma: ${eredmeny.napok}`)
 
     } catch (hiba) {
         console.log(`Hiba: ${hiba.message}`)
