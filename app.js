@@ -1,39 +1,30 @@
-function honapok(event){
+const honapok = [
+    { nev: "Január", evszak: "Tél", napok: 31},
+    { nev: "Február", evszak: "Tél", napok: 28},
+    { nev: "Március", evszak: "Tavasz", napok: 31},
+    { nev: "Április", evszak: "Tavasz", napok: 30},
+    { nev: "Május", evszak: "Tavasz", napok: 31},
+    { nev: "Június", evszak: "Nyár", napok: 30},
+    { nev: "Július", evszak: "Nyár", napok: 31},
+    { nev: "Augusztus", evszak: "Nyár", napok: 31},
+    { nev: "Szeptember", evszak: "Ősz", napok: 30},
+    { nev: "Október", evszak: "Ősz", napok: 31},
+    { nev: "November", evszak: "Ősz", napok: 30},
+    { nev: "December", evszak: "Tél", napok: 31}
+]
+function inditas(event){
     if(event) event.preventDefault(); 
-
     let szam = +document.getElementById("input").value;
-    let honap = document.getElementById("honap");
-    let evszak = document.getElementById("evszak");
+    try {
+        if(!isNaN(szam) && szam < 13) kereses(szam)
+    } catch (hiba) {
+        console.log(hiba)
+    }
+}
 
-    switch(szam){
-        case 1: honap.innerHTML = "Január"; break;
-        case 2: honap.innerHTML = "Február"; break;
-        case 3: honap.innerHTML = "Március"; break;
-        case 4: honap.innerHTML = "Április"; break;
-        case 5: honap.innerHTML = "Május"; break;
-        case 6:  honap.innerHTML = "Június";     break;
-        case 7:  honap.innerHTML = "Július";     break;
-        case 8:  honap.innerHTML = "Augusztus";  break;
-        case 9:  honap.innerHTML = "Szeptember"; break;
-        case 10: honap.innerHTML = "Október";    break;
-        case 11: honap.innerHTML = "November";   break;
-        case 12: honap.innerHTML = "December";   break;
-        default: honap.innerHTML = "Hibás szám!";          
+function kereses(keresettSzam){
+    if(keresettSzam == honapok.length[keresettSzam-1]){
+        console.log(`${honapok[keresettSzam].nev}, ${honapok[keresettSzam].evszak},
+             ${honapok[keresettSzam].napok}`)
     }
-
-    if(szam > 2 && szam < 6){
-        evszak.innerHTML = "Tavasz"
-    }
-    else if(szam > 5 && szam < 9){
-        evszak.innerHTML = "Nyár";
-    }
-    else if(szam > 8 && szam < 12){
-        evszak.innerHTML = "Ősz";
-    }
-    else if(szam == 1 || szam == 2 || szam == 12){
-        evszak.innerHTML = "Tél";
-    }
-    else{
-        evszak.innerHTML = ""
-    }                                   
 }
