@@ -12,19 +12,23 @@ const honapok = [
     { nev: "November", evszak: "Ősz", napok: 30},
     { nev: "December", evszak: "Tél", napok: 31}
 ]
+
 function inditas(event){
     if(event) event.preventDefault(); 
-    let szam = +document.getElementById("input").value;
     try {
-        if(!isNaN(szam) && szam < 13) kereses(szam)
+        let szam = +document.getElementById("input").value;
+
+        if(isNaN(szam)) throw new Error("Nem számot adtál meg!")
+        else if(szam < 1 || szam > 12) {throw new Error("A hónapszámnak 1 és 12 közé kell esnie!")}
+            
+        let eredmeny = kereses(szam)
+        console.log(`${eredmeny.nev}, ${eredmeny.evszak}, ${eredmeny.napok}`)
+
     } catch (hiba) {
-        console.log(hiba)
+        console.log(`Hiba: ${hiba.message}`)
     }
 }
 
 function kereses(keresettSzam){
-    if(keresettSzam == honapok.length[keresettSzam-1]){
-        console.log(`${honapok[keresettSzam].nev}, ${honapok[keresettSzam].evszak},
-             ${honapok[keresettSzam].napok}`)
-    }
+    return honapok[keresettSzam-1]
 }
