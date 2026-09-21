@@ -1,0 +1,56 @@
+body{
+    background-color: antiquewhite;
+}
+
+#honapokForm{
+    text-align: center;
+}
+
+#honapokGomb{
+    width: 6.5rem;
+    height: 3rem;
+    background-color: rgb(255, 141, 35);
+    border: 0;
+    border-radius: 5px;
+}
+
+#inputMezo{
+    width: 15rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 5px;
+}
+
+#szerekesztoPanel{
+    text-align: center;
+}
+
+
+#modositasDiv{
+    width: 6.5rem;
+    height: 3rem;
+    margin: 0 auto;
+}
+
+#modositasGomb{
+    width: 6.5rem;
+    height: 3rem;
+    background-color: rgb(255, 141, 35);
+    border: 0;
+    border-radius: 5px;
+}
+
+#mentesGomb{
+    width: 6.5rem;
+    height: 3rem;
+    background-color: rgb(255, 141, 35);
+    border: 0;
+    border-radius: 5px;
+}
+
+#ujUnnep{
+    width: 15rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 5px;
+}
