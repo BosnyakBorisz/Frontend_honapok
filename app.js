@@ -35,7 +35,6 @@ function inditas(event) {
         let eredmeny = kereses(szam)
         frissitKiiras(szam, eredmeny)
         modositasGomb.style.display = "block"
-
     } catch (hiba) {
         kiiras.innerHTML = `Hiba: ${hiba.message}`
         aktualisSzerkesztettIndex = null
@@ -62,11 +61,7 @@ function szerkesztesMegnyitasa() {
     }
 
     let honap = honapok[aktualisSzerkesztettIndex]
-
-    //document.getElementById("szerkesztettHonapNeve").value = honap.nev
-    //document.getElementById("szerkesztettEvszak").value = honap.evszak
-    //document.getElementById("szerkesztettNapok").value = honap.napok
-
+    
     document.getElementById("szerkesztettHonapNeve").innerText = honap.nev
     document.getElementById("szerkesztettEvszak").innerText = honap.evszak
     document.getElementById("szerkesztettNapok").innerText = honap.napok
@@ -79,10 +74,17 @@ function mentes(event) {
     if(event) event.preventDefault()
 
     if (aktualisSzerkesztettIndex !== null) {
-        let ujUnnepErtek = document.getElementById("ujUnnep").value        
+        const regex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ\s]+$/   ///^[a-záéíóöőúüű]+$/i 
+        let ujUnnepErtek = document.getElementById("ujUnnep").value    
+        if (ujUnnepErtek == "") {
+            kiiras.innerHTML = "Hiba: Az ünnep neve nem lehet üres!"
+            return
+        } else if (!regex.test(ujUnnepErtek)) {
+            kiiras.innerHTML = "Hiba: Az ünnep neve csak betűket tartalmazhat!"
+            return
+        }    
         honapok[aktualisSzerkesztettIndex].unnep = ujUnnepErtek        
         frissitKiiras(aktualisSzerkesztettIndex + 1, honapok[aktualisSzerkesztettIndex])
         szerkesztoPanel.style.display = "none"
-        //modositasGomb.style.display = "none"
     }
 }

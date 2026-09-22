@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hónap Kereső és Szerkesztő</title>
+    <title>Hónap kereső</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <form id="honapokForm" onsubmit="inditas(event)">
-                <h3>Írjon be egy számot (1-12):</h3>
-                <input id="inputMezo" required>
-                <button type="submit" id="honapokGomb">Kiírás</button>
-                <p id="kiiras"></p>     
-        </form>
+    <form id="honapokForm" onsubmit="inditas(event)">
+        <h3>Írjon be egy számot (1-12):</h3>
+        <input id="inputMezo" required autocomplete="off" placeholder="Pl. 3">
+        <button type="submit" id="honapokGomb">Kiírás</button>
+        <p id="kiiras"></p>     
+    </form>
      
-        <div id="modositasDiv"><button id="modositasGomb" onclick="szerkesztesMegnyitasa()">Módosítás</button></div>
+    <div id="modositasDiv"><button id="modositasGomb" onclick="szerkesztesMegnyitasa()">Módosítás</button></div>
         
-        <form id="szerekesztoPanel" onsubmit="mentes(event)">
-                <h4 id="szerkesztettHonapNeve">Hónap szerkesztése</h4>
-                <p>Évszak: <span id="szerkesztettEvszak"></span></p>
-                <p>Napok száma: <span id="szerkesztettNapok"></span></p>
-                
-                <!--<input  id="szerkesztettHonapNeve">
-                <input  id="szerkesztettEvszak">
-                <input  id="szerkesztettNapok">-->
+    <form id="szerekesztoPanel" onsubmit="mentes(event)">
+        <h4 id="szerkesztettHonapNeve">Hónap szerkesztése</h4>
+        <div class="info-sorok">
+            <p>Évszak: <span id="szerkesztettEvszak"></span></p>
+            <p>Napok száma: <span id="szerkesztettNapok"></span></p>
+        </div>
 
-                <p for="ujUnnep">Ünnep módosítása:</p>
-                <input type="text" id="ujUnnep" required>
-                
-                <button type="submit" id="mentesGomb">Mentés</button>
-        </form>
+        <p class="label-szoveg" for="ujUnnep">Ünnep módosítása:</p>
+        <input type="text" id="ujUnnep" autocomplete="off">
+        
+        <button type="submit" id="mentesGomb">Mentés</button>
+    </form>
 
     <script src="app.js"></script>
 </body>
