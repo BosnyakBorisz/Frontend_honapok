@@ -74,13 +74,13 @@ function mentes(event) {
     if(event) event.preventDefault()
 
     if (aktualisSzerkesztettIndex !== null) {
-        const regex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ\s]+$/   ///^[a-záéíóöőúüű]+$/i 
+        const regex = /^(?![0-9]+$)(?![ .\-$])(?!(?:.*[ .\-]){2})[a-záéíóöőúüű0-9 \-\.]+$/i; 
         let ujUnnepErtek = document.getElementById("ujUnnep").value    
         if (ujUnnepErtek == "") {
             kiiras.innerHTML = "Hiba: Az ünnep neve nem lehet üres!"
             return
         } else if (!regex.test(ujUnnepErtek)) {
-            kiiras.innerHTML = "Hiba: Az ünnep neve csak betűket tartalmazhat!"
+            kiiras.innerHTML = "Hiba: Az ünnep neve csak betűket és számokat tartalmazhat!"
             return
         }    
         honapok[aktualisSzerkesztettIndex].unnep = ujUnnepErtek        
